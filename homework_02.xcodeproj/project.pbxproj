@@ -15,6 +15,8 @@
 		BB95AFC92693FFAF002D8391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB95AFC72693FFAF002D8391 /* LaunchScreen.storyboard */; };
 		BB95AFD42693FFAF002D8391 /* homework_02Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95AFD32693FFAF002D8391 /* homework_02Tests.swift */; };
 		BB95AFDF2693FFAF002D8391 /* homework_02UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95AFDE2693FFAF002D8391 /* homework_02UITests.swift */; };
+		BB95AFEE26941BC8002D8391 /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95AFEC26941BC8002D8391 /* MovieListTableViewCell.swift */; };
+		BB95AFEF26941BC8002D8391 /* MovieListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB95AFED26941BC8002D8391 /* MovieListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		BB95AFDA2693FFAF002D8391 /* homework_02UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = homework_02UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB95AFDE2693FFAF002D8391 /* homework_02UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homework_02UITests.swift; sourceTree = "<group>"; };
 		BB95AFE02693FFAF002D8391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB95AFEC26941BC8002D8391 /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
+		BB95AFED26941BC8002D8391 /* MovieListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				BB95AFC52693FFAF002D8391 /* Assets.xcassets */,
 				BB95AFC72693FFAF002D8391 /* LaunchScreen.storyboard */,
 				BB95AFCA2693FFAF002D8391 /* Info.plist */,
+				BB95AFEC26941BC8002D8391 /* MovieListTableViewCell.swift */,
+				BB95AFED26941BC8002D8391 /* MovieListTableViewCell.xib */,
 			);
 			path = homework_02;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 			files = (
 				BB95AFC92693FFAF002D8391 /* LaunchScreen.storyboard in Resources */,
 				BB95AFC62693FFAF002D8391 /* Assets.xcassets in Resources */,
+				BB95AFEF26941BC8002D8391 /* MovieListTableViewCell.xib in Resources */,
 				BB95AFC42693FFAB002D8391 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +267,7 @@
 			files = (
 				BB95AFC12693FFAB002D8391 /* ViewController.swift in Sources */,
 				BB95AFBD2693FFAB002D8391 /* AppDelegate.swift in Sources */,
+				BB95AFEE26941BC8002D8391 /* MovieListTableViewCell.swift in Sources */,
 				BB95AFBF2693FFAB002D8391 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
