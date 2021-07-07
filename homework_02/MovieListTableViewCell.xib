@@ -21,16 +21,16 @@
                         <rect key="frame" x="20" y="60" width="440" height="205"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EN2-eQ-5h5">
-                                <rect key="frame" x="169" y="10" width="261" height="52"/>
+                                <rect key="frame" x="174" y="15" width="256" height="52"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad8-jC-4L2">
-                                        <rect key="frame" x="0.0" y="0.0" width="261" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kho-hj-jF3">
-                                        <rect key="frame" x="0.0" y="34" width="261" height="18"/>
+                                        <rect key="frame" x="0.0" y="34" width="256" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EN2-eQ-5h5" firstAttribute="top" secondItem="y1o-52-aaL" secondAttribute="top" constant="10" id="J2P-Gj-Phi"/>
+                            <constraint firstItem="EN2-eQ-5h5" firstAttribute="top" secondItem="y1o-52-aaL" secondAttribute="top" constant="15" id="J2P-Gj-Phi"/>
                             <constraint firstAttribute="trailing" secondItem="EN2-eQ-5h5" secondAttribute="trailing" constant="10" id="OI7-QV-r8t"/>
                         </constraints>
                     </view>
@@ -61,18 +61,18 @@
                     <constraint firstItem="y1o-52-aaL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="60" id="XJK-Yk-1g8"/>
                     <constraint firstAttribute="bottom" secondItem="5Tx-Zg-zqo" secondAttribute="bottom" id="cBc-sZ-KKx"/>
                     <constraint firstAttribute="bottom" secondItem="y1o-52-aaL" secondAttribute="bottom" id="irA-ju-UeP"/>
-                    <constraint firstItem="EN2-eQ-5h5" firstAttribute="leading" secondItem="5Tx-Zg-zqo" secondAttribute="trailing" constant="10" id="yQC-P7-vQh"/>
+                    <constraint firstItem="EN2-eQ-5h5" firstAttribute="leading" secondItem="5Tx-Zg-zqo" secondAttribute="trailing" constant="15" id="yQC-P7-vQh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" red="0.90593456670000005" green="0.90593456670000005" blue="0.90593456670000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" red="0.91011995079999997" green="0.91822224860000001" blue="0.96704679729999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="directorName" destination="Kho-hj-jF3" id="WBe-rc-TSJ"/>
                 <outlet property="dummyBg" destination="y1o-52-aaL" id="X8K-la-75B"/>
                 <outlet property="movieName" destination="Ad8-jC-4L2" id="JTC-ex-ywX"/>
                 <outlet property="posterImage" destination="5Tx-Zg-zqo" id="8v7-ZR-ggS"/>
             </connections>
-            <point key="canvasLocation" x="47.826086956521742" y="170.42410714285714"/>
+            <point key="canvasLocation" x="1" y="143"/>
         </tableViewCell>
     </objects>
     <resources>
