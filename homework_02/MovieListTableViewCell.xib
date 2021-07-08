@@ -43,6 +43,11 @@
                             <constraint firstItem="EN2-eQ-5h5" firstAttribute="top" secondItem="y1o-52-aaL" secondAttribute="top" constant="15" id="J2P-Gj-Phi"/>
                             <constraint firstAttribute="trailing" secondItem="EN2-eQ-5h5" secondAttribute="trailing" constant="10" id="OI7-QV-r8t"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Tx-Zg-zqo">
                         <rect key="frame" x="10" y="15" width="169" height="250"/>
@@ -50,6 +55,11 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="5Tx-Zg-zqo" secondAttribute="height" multiplier="135:200" id="RzS-Xm-aoN"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.90593456668952077" green="0.90593456668952077" blue="0.90593456668952077" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
