@@ -12,27 +12,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let movieURL = "http://trailers.apple.com/trailers/home/feeds/just_added.json"
     var movieArray = [MovieData]()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getMovieData()
-        
-        //for navigationItems
-        self.title = "Movie Trailers"
-        configureItems()
         
         //for tableView
         let nib = UINib(nibName: "MovieListTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MovieListTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        
-    }
-    
-    //Navigation stuffs
-    private func configureItems(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
     }
 }
 
@@ -53,7 +42,6 @@ extension ViewController{
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode([MovieData].self, from: data)
                 self.movieArray = decodedData
-                print("updated movieArray")
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -71,30 +59,19 @@ extension ViewController{
 //MARK: - UITableViewDelegate
 
 extension ViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1.00)
-        let sectionLabel = UILabel(frame: CGRect(x: 10, y: 20, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-        sectionLabel.font = UIFont(name: "Helvetica", size: 30)
-        sectionLabel.textColor = UIColor.black
-        sectionLabel.text = "Movie Trailers"
-        sectionLabel.sizeToFit()
-        sectionLabel.font = UIFont.boldSystemFont(ofSize: 30)
-        headerView.addSubview(sectionLabel)
-
-        return headerView
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        let nextVC = movieDetailViewController()
-        //nextVC.movieName.text = "movieName"
-        
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        let data =  movieArray[indexPath.row]
+        let nextVC = storyboard?.instantiateViewController(identifier: "movieDetailViewController") as? movieDetailViewController
+
+        nextVC!.movieDetailData.trailerURL = "http://trailers.apple.com" + data.trailers[0].url
+        nextVC!.movieDetailData.moviePosterURL = data.poster_2x
+        nextVC!.movieDetailData.movieNameText = data.title
+        nextVC!.movieDetailData.typeArray = data.genre
+        nextVC!.movieDetailData.yearText = data.releasedate
+        nextVC!.movieDetailData.actorsArray = data.actors
+        nextVC!.movieDetailData.directorsText = data.directors
+
+        self.navigationController?.pushViewController(nextVC!, animated: true)
     }
 }
 
@@ -119,7 +96,6 @@ extension ViewController: UITableViewDataSource{
                 cell.posterImage.image = UIImage(data: data!)
             }
         }
-        
         return cell
     }
 }

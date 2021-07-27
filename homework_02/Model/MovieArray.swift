@@ -30,3 +30,6 @@ struct trailersStruct : Decodable{
     let hd: Bool
 }
 
+struct MovieDetailData{
+    var title = ""
+}

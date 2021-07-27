@@ -8,20 +8,24 @@
 import UIKit
 
 struct MovieDetail {
-    var actors: [String]
-    var directors: [String]
-    var ratings: String
+    var trailerURL = ""
+    var moviePosterURL = ""
+    var movieNameText = ""
+    var typeArray = [String]()
+    var yearText = ""
+    var actorsArray = [String]()
+    var directorsText = ""
     
 }
 
-class movieDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var movieDetail = [
+class movieDetailViewController: UIViewController{
+    /*var movieDetail = [
         MovieDetail(actors: ["Rafe Spall", "Zahra Newman", "Ronny Chieng", "Dena Kaplan"], directors: ["Noni Hazlehurst"], ratings: "NR"),
         MovieDetail(actors: ["xxx", "xxx", "xxx", "xxx"], directors: ["yyy"], ratings: "zzz"),
         MovieDetail(actors: ["aaa", "aaa", "aaa", "aaa"], directors: ["bbb"], ratings: "ccc")
-    ]
+    ]*/
     
+    var movieDetailData = MovieDetail()
 
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var watchTrailer: UIButton!
@@ -31,8 +35,12 @@ class movieDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var lowerTableView: UITableView!
 
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getMovieData()
+        
         
         // for tableView
         lowerTableView.delegate = self
@@ -40,19 +48,64 @@ class movieDetailViewController: UIViewController, UITableViewDelegate, UITableV
 
         
     }
+    
+    func getMovieData(){
+        movieName.text = movieDetailData.movieNameText
+        
+        var typeString = ""
+        for elements in movieDetailData.typeArray{
+            typeString = typeString + " " + elements
+        }
+        let yearArray = movieDetailData.yearText.components(separatedBy: " ")
+        movieInfo.text = typeString + " | " + yearArray[3]
+        
+        
+        
+    }
 
+    
+    
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+extension movieDetailViewController{
+    
+}
+
+
+//MARK -UITableViewDelegate
+extension movieDetailViewController: UITableViewDelegate{
+    
+}
+
+//MARK -UITableViewDataSource
+extension movieDetailViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return movieDetail.count
+        //return movieDetail.count
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
-            return movieDetail[section].actors.count
+            //return movieDetail[section].actors.count
+            return 3
         }
         if section == 1{
-            return movieDetail[section].directors.count
+            //return movieDetail[section].directors.count
+            return 3
         }
         if section == 2{
-            return movieDetail[section].ratings.count
+            //return movieDetail[section].ratings.count
+            return 3
         }
         return 0
     }
@@ -60,7 +113,7 @@ class movieDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel!.text = movieDetail[indexPath.section].actors[indexPath.row]
+        //cell.textLabel!.text = movieDetail[indexPath.section].actors[indexPath.row]
         
         return cell
     }
@@ -98,17 +151,7 @@ class movieDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         return view
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+
