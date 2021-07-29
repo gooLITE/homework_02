@@ -67,7 +67,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="du5-Wl-8nn" userLabel="background">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="du5-Wl-8nn" userLabel="background">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syg-HX-9Vu" userLabel="upperHalfView">
@@ -95,6 +95,9 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickWatchTrailer:" destination="Cbc-yv-6zl" eventType="touchUpInside" id="iNh-3T-T4c"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1U-eS-C4o" userLabel="movieName">
                                         <rect key="frame" x="10" y="363" width="394" height="27.5"/>
@@ -109,7 +112,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Yv8-Jq-X9M" firstAttribute="bottom" secondItem="mlF-W7-5bt" secondAttribute="bottom" constant="20" id="9S8-c5-ED4"/>
                                     <constraint firstItem="roi-5V-BCC" firstAttribute="top" secondItem="d1U-eS-C4o" secondAttribute="bottom" constant="8" id="IRV-8x-Bm8"/>
@@ -182,6 +185,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0fo-HD-g1o"/>
                     <connections>
+                        <outlet property="background" destination="du5-Wl-8nn" id="mgW-cj-boS"/>
                         <outlet property="lowerHalfView" destination="Ylr-Sb-ATn" id="v3H-QL-k03"/>
                         <outlet property="lowerTableView" destination="v67-gp-BSv" id="euZ-69-kzK"/>
                         <outlet property="movieInfo" destination="roi-5V-BCC" id="Tuq-uA-AMm"/>

@@ -15,15 +15,10 @@ struct MovieDetail {
     var yearText = ""
     var actorsArray = [String]()
     var directorsText = ""
-    
+    var ratingText = ""
 }
 
 class movieDetailViewController: UIViewController{
-    /*var movieDetail = [
-        MovieDetail(actors: ["Rafe Spall", "Zahra Newman", "Ronny Chieng", "Dena Kaplan"], directors: ["Noni Hazlehurst"], ratings: "NR"),
-        MovieDetail(actors: ["xxx", "xxx", "xxx", "xxx"], directors: ["yyy"], ratings: "zzz"),
-        MovieDetail(actors: ["aaa", "aaa", "aaa", "aaa"], directors: ["bbb"], ratings: "ccc")
-    ]*/
     
     var movieDetailData = MovieDetail()
 
@@ -33,7 +28,8 @@ class movieDetailViewController: UIViewController{
     @IBOutlet weak var movieInfo: UILabel!
     @IBOutlet weak var lowerHalfView: UIView!
     @IBOutlet weak var lowerTableView: UITableView!
-
+    @IBOutlet weak var background: UIImageView!
+    
     
     
     override func viewDidLoad() {
@@ -45,7 +41,10 @@ class movieDetailViewController: UIViewController{
         // for tableView
         lowerTableView.delegate = self
         lowerTableView.dataSource = self
-
+        
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
         
     }
     
@@ -59,29 +58,22 @@ class movieDetailViewController: UIViewController{
         let yearArray = movieDetailData.yearText.components(separatedBy: " ")
         movieInfo.text = typeString + " | " + yearArray[3]
         
-        
-        
+        let imageURL = URL(string: movieDetailData.moviePosterURL)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: imageURL!)
+            DispatchQueue.main.async {
+                self.moviePoster.image = UIImage(data: data!)
+                self.background.image = UIImage(data: data!)
+            }
+        }
     }
 
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func clickWatchTrailer(_ sender: UIButton) {
+        let url = URL(string: movieDetailData.trailerURL)
+        UIApplication.shared.open(url!)
     }
-    */
-
-}
-extension movieDetailViewController{
     
 }
-
 
 //MARK -UITableViewDelegate
 extension movieDetailViewController: UITableViewDelegate{
@@ -91,21 +83,18 @@ extension movieDetailViewController: UITableViewDelegate{
 //MARK -UITableViewDataSource
 extension movieDetailViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        //return movieDetail.count
         return 3
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
-            //return movieDetail[section].actors.count
-            return 3
+            return movieDetailData.actorsArray.count
         }
         if section == 1{
-            //return movieDetail[section].directors.count
-            return 3
+            return 1
         }
         if section == 2{
-            //return movieDetail[section].ratings.count
-            return 3
+            return 1
         }
         return 0
     }
@@ -113,12 +102,20 @@ extension movieDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        //cell.textLabel!.text = movieDetail[indexPath.section].actors[indexPath.row]
-        
+        switch indexPath.section{
+        case 0:
+            cell.textLabel?.text = movieDetailData.actorsArray[indexPath.row]
+        case 1:
+            cell.textLabel?.text = movieDetailData.directorsText
+        case 2:
+            cell.textLabel?.text = movieDetailData.ratingText
+        default:
+            cell.textLabel?.text = "Invalid section"
+        }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var temp: String = ""
         if section == 0{
             temp = "Actors"
@@ -130,13 +127,14 @@ extension movieDetailViewController: UITableViewDataSource{
             temp = "Ratings"
         }
         return temp
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
         view.backgroundColor = .clear
         
-        let lable = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width-15, height: 30))
+        let lable = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width-15, height: 50))
+        
         if section == 0{
             lable.text = "Actors"
         }

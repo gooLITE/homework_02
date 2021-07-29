@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "MovieListTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 }
 
@@ -70,6 +71,7 @@ extension ViewController: UITableViewDelegate{
         nextVC!.movieDetailData.yearText = data.releasedate
         nextVC!.movieDetailData.actorsArray = data.actors
         nextVC!.movieDetailData.directorsText = data.directors
+        nextVC!.movieDetailData.ratingText = data.rating
 
         self.navigationController?.pushViewController(nextVC!, animated: true)
     }
