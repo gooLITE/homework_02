@@ -115,41 +115,36 @@ extension movieDetailViewController: UITableViewDataSource{
         return cell
     }
     
-    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var temp: String = ""
-        if section == 0{
-            temp = "Actors"
-        }
-        if section == 1{
-            temp = "Directors"
-        }
-        if section == 2{
-            temp = "Ratings"
-        }
-        return temp
-    }*/
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
         
-        let lable = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width-15, height: 50))
+        let lable = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width, height: 50))
         
         if section == 0{
             lable.text = "Actors"
+            lable.font = UIFont.boldSystemFont(ofSize: 25)
         }
         if section == 1{
             lable.text = "Directors"
+            lable.font = UIFont.boldSystemFont(ofSize: 20)
         }
         if section == 2{
             lable.text = "Ratings"
+            lable.font = UIFont.boldSystemFont(ofSize: 20)
         }
         
         view.addSubview(lable)
         
         return view
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
 }
+
+
 
 
 
